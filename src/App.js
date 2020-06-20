@@ -7,6 +7,8 @@ import '@vkontakte/vkui/dist/vkui.css';
 import DashboardPanel from './panels/DashboardPanel';
 import TeamPanel from './panels/TeamPanel';
 import ProjectPanel from './panels/ProjectPanel';
+import ProjectSettingsPanel from './panels/ProjectSettingsPanel';
+import TaskSettingsPanel from './panels/TaskSettingsPanel';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('dashboard');
@@ -38,6 +40,8 @@ const App = () => {
 			<DashboardPanel id='dashboard' fetchedUser={fetchedUser} go={go} />
 			<TeamPanel id='team' go={go} />
 			<ProjectPanel id='project' go={go} />
+			<ProjectSettingsPanel id='projectsettings' go={go} />
+			<TaskSettingsPanel id='tasksettings' go={go} />
 		</View>
 	);
 }

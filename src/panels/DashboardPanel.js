@@ -31,8 +31,8 @@ const DashboardPanel = ({ id, go, fetchedUser }) => (
 
 		<Group title="Navigation Example">
 			<Div>
-				<Button size="xl" level="3" onClick={go} data-to="project">
-					Проект
+				<Button size="xl" level="3" onClick={go} data-to="projectlist">
+					Мои проекты
 				</Button>
 			</Div>
 		</Group>

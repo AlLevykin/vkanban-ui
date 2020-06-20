@@ -6,7 +6,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 import DashboardPanel from './panels/DashboardPanel';
 import TeamPanel from './panels/TeamPanel';
-import ProjectPanel from './panels/ProjectPanel';
+import ProjectList from './panels/ProjectList';
 import ProjectSettingsPanel from './panels/ProjectSettingsPanel';
 import TaskSettingsPanel from './panels/TaskSettingsPanel';
 
@@ -39,7 +39,7 @@ const App = () => {
 		<View activePanel={activePanel} popout={popout}>
 			<DashboardPanel id='dashboard' fetchedUser={fetchedUser} go={go} />
 			<TeamPanel id='team' go={go} />
-			<ProjectPanel id='project' go={go} />
+			<ProjectList id='projectlist' go={go} />
 			<ProjectSettingsPanel id='projectsettings' go={go} />
 			<TaskSettingsPanel id='tasksettings' go={go} />
 		</View>

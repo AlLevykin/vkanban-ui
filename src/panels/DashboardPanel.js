@@ -36,6 +36,20 @@ const DashboardPanel = ({ id, go, fetchedUser }) => (
 				</Button>
 			</Div>
 		</Group>
+		<Group title="Navigation Example">
+			<Div>
+				<Button size="xl" level="4" onClick={go} data-to="projectsettings">
+					Свойства проекта
+				</Button>
+			</Div>
+		</Group>
+		<Group title="Navigation Example">
+			<Div>
+				<Button size="xl" level="5" onClick={go} data-to="tasksettings">
+					Свойства задачи
+				</Button>
+			</Div>
+		</Group>
 	</Panel>
 );
 

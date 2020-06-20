@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Select, FormLayout, Group, Header, Avatar, Textarea, Cell } from '@vkontakte/vkui';
+import { Input, FormLayout, Group, Header, Avatar, Textarea, Cell } from '@vkontakte/vkui';
 
 class SettingsForm extends React.Component {
  /*
@@ -42,25 +42,25 @@ class SettingsForm extends React.Component {
               <FormLayoutGroup top="Пароль" bottom="Пароль может содержать только латинские буквы и цифры.">
                 <Input type="password"  placeholder="Введите пароль" />
                 <Input type="password" placeholder="Повторите пароль" />
-              </FormLayoutGroup> */}
-  
-              <Input top="Название" />
-              <Input top="Цель" />
-  
+              </FormLayoutGroup> 
+              
               <Select top="Статус" placeholder="статус">
                 <option value="m">не завешен</option>
                 <option value="f">в работе</option>
                 <option value="f">завершен</option>
-              </Select>
+              </Select>*/}
+  
+              <Input top="Название" value="Помощь ветеранам" />
+              <Input top="Цель" value="Доставка продуктов питания и лекарств."/>
 
               <Group description="">
-                <Header mode="secondary">Участники</Header>
-                <Cell before={<Avatar/>}>Евгений Авсиевич</Cell>
-                <Cell before={<Avatar/>}>Татьяна Плуталова</Cell>
-                <Cell before={<Avatar/>}>Олег Илларианов</Cell>
+                <Header mode="secondary">Команда</Header>
+                <Cell description="Руководитель проекта" before={<Avatar src="img/m.jpg"/>}>Евгений Авсиевич</Cell>
+                <Cell before={<Avatar src="img/w.jpg"/>}>Татьяна Плуталова</Cell>
+                <Cell before={<Avatar src="img/boy.jpg"/>}>Олег Илларианов</Cell>
              </Group>
 
-              <Textarea top="" placeholder="Комментарий..." />
+              <Textarea top="" placeholder="Комментарий..." value="Требуются услуги транспортной компании. Необходимо мониторить foodsharing." />
 
               {/* <FormLayoutGroup top="Тип документа">
                 <Radio name="type">Паспорт</Radio>

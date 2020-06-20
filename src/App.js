@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import View from '@vkontakte/vkui/dist/components/View/View';
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import DashboardPanel from './panels/DashboardPanel';
@@ -9,11 +8,12 @@ import TeamPanel from './panels/TeamPanel';
 import ProjectList from './panels/ProjectList';
 import ProjectSettingsPanel from './panels/ProjectSettingsPanel';
 import TaskSettingsPanel from './panels/TaskSettingsPanel';
+import KanbanBoard from './panels/KanbanBoard';
+import CostPanel from './panels/CostPanel';
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('dashboard');
+	const [activePanel, setActivePanel] = useState('projectlist');
 	const [fetchedUser, setUser] = useState(null);
-	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
 	useEffect(() => {
 		bridge.subscribe(({ detail: { type, data }}) => {
@@ -26,7 +26,6 @@ const App = () => {
 		async function fetchData() {
 			const user = await bridge.send('VKWebAppGetUserInfo');
 			setUser(user);
-			setPopout(null);
 		}
 		fetchData();
 	}, []);
@@ -36,12 +35,14 @@ const App = () => {
 	};
 
 	return (
-		<View activePanel={activePanel} popout={popout}>
+		<View activePanel={activePanel}>
 			<DashboardPanel id='dashboard' fetchedUser={fetchedUser} go={go} />
 			<TeamPanel id='team' go={go} />
-			<ProjectList id='projectlist' go={go} />
+			<ProjectList id='projectlist' fetchedUser={fetchedUser} go={go} />
+			<KanbanBoard id='kanbanboard' go={go} />
 			<ProjectSettingsPanel id='projectsettings' go={go} />
 			<TaskSettingsPanel id='tasksettings' go={go} />
+			<CostPanel id='costpanel' go={go} />			
 		</View>
 	);
 }
